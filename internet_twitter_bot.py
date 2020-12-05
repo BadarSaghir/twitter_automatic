@@ -37,7 +37,7 @@ class InternetTwitterBot():
         print('tweet')
         x_path = '/html/body/div/div/div/div[2]/main/div/div/div/div[1]/div/div[2]/div/div[2]/div[1]/div/div/div/div[' \
                  '2]/div[1]/div/div/div/div/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/span/span '
-        if self.up_speed < PROMISE_UP and self.down_speed < PROMISE_DOWN:
+        if self.up_speed < PROMISE_UP or self.down_speed < PROMISE_DOWN:
             print('yes')
             self.driver.get(URL)
             sleep(6)
@@ -53,9 +53,10 @@ class InternetTwitterBot():
             write_tweet = self.driver.find_element_by_xpath('//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/div[1]/div/div/div/div/div/div/div/div/span')
             write_tweet.send_keys(f"My internet upload speed  is {self.up_speed}, and Download Speed is {self.down_speed}. "
                                   f"I am using Zong. By the way I am PY-BOT. Contact Him for Automation with Python")
-            submit = self.driver.find_element_by_xpath('//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[4]/div/div/div[2]/div')
-            submit.click()
+            # submit = self.driver.find_element_by_xpath('//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[4]/div/div/div[2]/div')
+            # submit.click()
+            write_tweet.send_keys(Keys.LEFT_CONTROL+Keys.ENTER)
             sleep(6)
-            self.driver.quit()
+            # self.driver.quit()
 
 
